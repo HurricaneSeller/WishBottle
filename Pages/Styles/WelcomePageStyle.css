@@ -1,57 +1,68 @@
-html{
-    font-size: 15px;
-}
+@import url('https://fonts.googleapis.com/css?family=Yantramanav:100');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400');
 
-h1{
-    color: #990033;
-    font-family: 'Bad Script', cursive;
-    font-size: 25px;
+body, html{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+.intro{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    background: url(../images/pexels-photo-292600.jpg) no-repeat 50% 50%;
+    display: table;
+    top: 0;
+    background-size: cover;
+}
+.intro, .inner{
+    width: 100%;
+    max-width: none;
+}
+.inner{
+    display: table-cell;
+    vertical-align: middle;
+}
+.content{
+    max-width: 600px;
+    margin: 15% auto;
     text-align: center;
-    text-shadow: -2px 5px 6px #dbe6ee;
-}
+    padding-bottom: 10%;
 
-p{
-    font-family: 'Unna', serif;
-    font-size: 19px;
-    line-height: 3;
-    letter-spacing: 1px;
 }
-
-body{
-    width: 480px;
-    margin: 200px 10%;
+.content h1{
+    font-family: "Yantramanav", sans-serif;
+    font-size: 600%;
+    font-weight: 100;
+    color: #E1DFD9;
+    line-height: 70%;
 }
-
-form{
-    margin: -300px 160%;
-    width: 400px;
-    padding: 1em;
-    border: 1px solid #990033;
-    border-radius: 1em;
-}
-
-form div + div{
-    margin-top: 30px;
-    margin-block-end: 50px;
-}
-
-label{
-    display: inline-block;
-    width: 90px;
-    text-align: right;
-}
-
-input{
-    font: 1em serif;
-    width: 300px;
-    box-sizing: border-box;
-    border: 1px solid #6a828b;
-}
-
-input:focus{
-    border-color: #6a5acd;
-}
-
 .button{
-    margin-left: .5em;
+    font-family: "Monserrat", sans-serif;
+    font-size: 135%;
+    font-weight: 400;
+    color:#3A6168;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: solid #3A6168;
+    padding: 10px 20px;
+    border-radius: 9px;
+    transition: all 3ms;
+}
+.button:hover{
+    color: #CBDFD6;
+    border: solid #CBDFD6 1px;
+    box-shadow: #CBDFD6 0 0 2px;
+    
+}
+/*--- Media Queries --*/
+@media screen and (max-width: 900px) {
+
+}
+@media screen and (max-width: 768px) {
+
+}
+@media screen and (max-width: 480px) {
+	
 }
