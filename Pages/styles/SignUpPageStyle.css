@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Yantramanav:100');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400');
+
 body{
   margin: 0;
   padding: 0;
-  background: #3A6168;
+  background: url(../images/pexels-photo-292600.jpg);
+  background-size: cover;
 }
 .signup-form{
   width: 300px;
   padding: 20px;
   text-align: center;
   background: url(../images/bg.jpg);
+  background-size: cover;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -15,10 +20,11 @@ body{
   overflow: hidden;
 }
 .signup-form h1{
-  margin-top: 100px;
-  font-family: 'Permanent Marker', cursive;
+  margin-top: 40px;
+  font-family: 'Yantramanav', cursive;
+  font-size: 60px;
+  font-weight: 100;
   color: #fff;
-  font-size: 40px;
 }
 .signup-form input{
   display: block;
@@ -41,11 +47,12 @@ body{
 .signup-btn{
   margin-top: 60px;
   margin-bottom: 20px;
-  background: #487eb0;
+  background: #FACF5A;
   color: #fff;
   border-radius: 44px;
   cursor: pointer;
   transition: 0.8s;
+  font-size: 18px;
 }
 .signup-btn:hover{
   transform: scale(0.96);

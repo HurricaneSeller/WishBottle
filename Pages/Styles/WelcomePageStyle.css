@@ -40,21 +40,20 @@ body, html{
 }
 .button{
     font-family: "Monserrat", sans-serif;
-    font-size: 135%;
-    font-weight: 400;
-    color:#3A6168;
-    text-transform: uppercase;
     text-decoration: none;
-    border: solid #3A6168;
-    padding: 10px 20px;
-    border-radius: 9px;
-    transition: all 3ms;
+    font-size: 135%;
+    font-weight: 300;
+    box-shadow: rgb(88, 128, 134) 0 0 30px;
+    cursor: pointer;
+    border-radius: 44px;
+    padding: 10px 40px;
+    background: #FACF5A;
+    color: #fff;
+    transition: all 0.5ms;
 }
+
 .button:hover{
-    color: #CBDFD6;
-    border: solid #CBDFD6 1px;
-    box-shadow: #CBDFD6 0 0 2px;
-    
+    transform: scale(0.93);
 }
 /*--- Media Queries --*/
 @media screen and (max-width: 900px) {

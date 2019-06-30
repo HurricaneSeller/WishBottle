@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Yantramanav:100');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400');
+
+body{
+  margin: 0;
+  padding: 0;
+  background: url(../images/pexels-photo-292600.jpg);
+  background-size: cover;
+}
+.signin-form{
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  background: url(../images/bg.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  overflow: hidden;
+}
+.signin-form h1{
+  margin-top: 40px;
+  font-family: 'Yantramanav', cursive;
+  font-size: 60px;
+  font-weight: 100;
+  color: #fff;
+}
+.signin-form input{
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  height: 44px;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  font-family: "montserrat",sans-serif;
+}
+.txtb{
+  margin: 20px 0;
+  background: rgba(255,255,255,.5);
+  border-radius: 6px;
+  color: aliceblue;
+  
+}
+.signin-btn{
+  margin-top: 60px;
+  margin-bottom: 20px;
+  background: #FACF5A;
+  color: #fff;
+  border-radius: 44px;
+  cursor: pointer;
+  transition: 0.8s;
+  font-size: 18px;
+}
+.signin-btn:hover{
+  transform: scale(0.96);
+}
+.signin-form a{
+  text-decoration: none;
+  color: #fff;
+  font-family: "montserrat",sans-serif;
+  font-size: 14px;
+  padding: 10px;
+  transition: 0.8s;
+  display: block;
+}
+.signin-form a:hover{
+  background: rgba(0,0,0,.3);
+}
