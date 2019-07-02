@@ -8,16 +8,93 @@
         <link rel="stylesheet" type="text/css" href="./styles/WishPool.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </head>
     <body>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide">
+                        <div class="editor">
+                            <div class="textInput">
+                                <textarea class="inputZone" placeholder="Make a wish!"></textarea>
+                            </div>
+                            <div class="mediaBtn">
+                                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Attach</a>
+                                <ul id='dropdown1' class='dropdown-content'>
+                                    <li><a href="#!">Image</a></li>
+                                    <li class="divider" tabindex="-1"></li>
+                                    <li><a href="#!">Video</a></li>
+                                    <li class="divider" tabindex="-1"></li>
+                                    <li><a href="#!">Sound</a></li>
+                                </ul>
+                                <script>
+                                    $('.dropdown-trigger').dropdown();
+                                </script>
+                            </div>
+                            <div class="postBtn">
+                                    <a class='dropdown-trigger btn' href='#' data-target='dropdown2'>Post</a>
+                                    <ul id='dropdown2' class='dropdown-content'>
+                                        <li><a href="#!">Pool</a></li>
+                                        <li class="divider" tabindex="-1"></li>
+                                        <li><a href="#!">Ocean</a></li>
+                                    </ul>
+                                    <script>
+                                        $('.dropdown-trigger').dropdown();
+                                    </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="contentContainer">
+                            <div class="contentBody">
+                                <p class="detail">This is a sample content
+                                    <br>a sample line
+                                    <br>and a sample sentence.
+
+                                </p>
+                                <p class="username">Username</p>
+                                <p class="time">YYYY-MM-DD</p>
+                            </div>
+                            <div class="contentFoot">
+                                <button class="likeBtn">Like</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                            <div class="contentContainer">
+                                <div class="contentBody">
+                                    <p class="detail">This is a sample content
+                                        <br>a sample line
+                                        <br>and a sample sentence.
+    
+                                    </p>
+                                    <p class="username">Username</p>
+                                    <p class="time">YYYY-MM-DD</p>
+                                </div>
+                                <div class="contentFoot">
+                                    <button class="likeBtn">Like</button>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="swiper-slide">
+                            <div class="contentContainer">
+                                <div class="contentBody">
+                                    <p class="detail">This is a sample content
+                                        <br>a sample line
+                                        <br>and a sample sentence.
+    
+                                    </p>
+                                    <p class="username">Username</p>
+                                    <p class="time">YYYY-MM-DD</p>
+                                </div>
+                                <div class="contentFoot">
+                                    <button class="likeBtn">Like</button>
+                                </div>
+                            </div>
+                    </div>
+
+
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
@@ -43,9 +120,9 @@
         </script>        
         <div class="slidebar">
             <ul>
-                <li title="个人信息"><a class="ion-person" href="Profiles.html"></a></li>
-                <li title="心愿池"><a class="ion-calendar" href="#"></a></li>
-                <li title="心愿海"><a class="ion-aperture" href="WishOcean.html"></a></li>
+                <li><a class="ion-person" href="Profiles.html"></a></li>
+                <li><a class="ion-calendar" href="#"></a></li>
+                <li><a class="ion-aperture" href="WishOcean.html"></a></li>
             </ul>
         </div>
     </body>

@@ -46,10 +46,95 @@ body,html{
     width: 75%;
     padding-top: 50px;
     padding-bottom: 50px;
-  }
-  .swiper-slide {
-    background-position: center;
+    font-family: 'Monsterrat', sans-serif;
+}
+.swiper-slide {
+    background: url('../images/pexels-photo-2926002.jpg');
     background-size: cover;
     width: 300px;
     height: 300px;
-  }
+    border-radius: 2px;
+    box-shadow: rgb(88, 128, 134) 0 0 10px;
+}
+.editor{
+    margin: 10% 10%;
+    padding: 0;
+}
+.textInput{
+    margin: 20px 0;
+}
+.inputZone{
+    height: 130px;
+    width: 230px;
+    resize: none;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 2px solid #FACF5A;
+    font-family: 'monsterrat', sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    letter-spacing: 2px;
+    color: #ffffff;
+    padding-top: 10px;
+    padding-left: 10px;
+    background: #3A6168;
+    box-shadow: rgb(41, 75, 82) 0 0 15px;
+}
+.mediaBtn{
+    margin: 0;
+    position: absolute;
+    top: 190px;
+}
+.postBtn{
+    margin: 0;
+    position: absolute;
+    top: 190px;
+    left: 150px;
+}
+.contentContainer{
+    margin: 0;
+    padding: 0;
+    font-family: 'monsterrat', sans-serif;
+    padding: 15px;
+}
+.username{
+    font-size: 20px;
+    
+}
+.contentFoot{
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+}
+.likeBtn{
+    width: 70px;
+    height: 30px;
+    border-width: 0;
+    border-radius: 3px;
+    background: rgb(228, 189, 82);
+    cursor: pointer;
+    outline: none;
+    color: #ffffff;
+    font-size: 17px;
+    box-shadow: #3A6168 0 0 10px;
+}
+.likeBtn:hover{
+    background: rgb(241, 206, 109);
+}
+.username{
+    font-size: 18px;
+    bottom: 40px;
+}
+.time{
+    font-size: 15px;
+    bottom: 70px;
+}
+.contentBody{
+    margin: 5% 5%;
+    border: 1px solid  #FACF5A;
+    box-shadow: #3A6168 0 0 10px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background: #ffffff27;
+}
