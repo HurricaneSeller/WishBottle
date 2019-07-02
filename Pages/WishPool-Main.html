@@ -2,12 +2,45 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
         <title>Wish Bottle</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="./styles/WishPool.css">
+        <link rel="stylesheet" type="text/css" href="./styles/swiper.min.css">
+        <link rel="stylesheet" type="text/css" href="./styles/WishPool.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+              </div>
+        <script type="text/javascript" src="./js/swiper.min.js"></script>
+        <script>
+            var swiper = new Swiper('.swiper-container', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows : true,
+                },
+                pagination: {
+                el: '.swiper-pagination',
+                },
+            });
+        </script>        
         <div class="slidebar">
             <ul>
                 <li><a class="ion-person" href="Profiles.html"></a></li>
@@ -15,6 +48,5 @@
                 <li><a class="ion-aperture" href="WishOcean.html"></a></li>
             </ul>
         </div>
-        </script>
     </body>
 </html>
