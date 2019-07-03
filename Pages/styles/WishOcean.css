@@ -39,7 +39,7 @@ body,html{
 .slidebar ul li a:hover{
     background: rgb(88, 128, 134);
 }
-.swiper-container {
+.swiper-container{
     position:  absolute;
     left: 16%;
     top: 15%;
@@ -53,7 +53,6 @@ body,html{
     width: 300px;
     height: 300px;
 }
-
 .contentBody{
     background: rgba(138, 161, 165, 0.664);
     border: 2px solid #facf5a;
@@ -61,11 +60,11 @@ body,html{
     box-shadow: rgb(13, 27, 31) 0 0 10px;
     width: 80%;
     height: 150px;
-    display: table;
+    display: block;
     margin: 0 auto;
     margin-top: 30px;
     padding: 10px 10px;
-    overflow: scroll;
+    overflow: auto;
 }
 .likeBtn{
     display: table;
@@ -82,4 +81,17 @@ body,html{
 }
 .likeBtn:hover{
     background: #f3d071;
+}
+.stamp{ 
+    position: absolute;
+    text-align: right;
+    font-size: 15px;
+    display: block;
+    margin-left: 50%;
+    margin-top: 15%;
+    font-weight: 500;
+    line-height: 5px;
+}
+.detail{
+    margin: 0;
 }
