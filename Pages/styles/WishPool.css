@@ -46,10 +46,68 @@ body,html{
     width: 75%;
     padding-top: 50px;
     padding-bottom: 50px;
-  }
-  .swiper-slide {
-    background-position: center;
+}
+.swiper-slide {
+    background: url('../images/pexels-photo-2926003.jpg');
     background-size: cover;
     width: 300px;
     height: 300px;
-  }
+    box-shadow: rgb(85, 140, 150) 0 0 10px;
+}
+.inputZone{
+    background: rgba(23, 47, 51, 0.664);
+    border: 2px solid #facf5a;
+    border-radius: 3px;
+    box-shadow: rgb(13, 27, 31) 0 0 10px;
+    width: 80%;
+    height: 150px;
+    display: table;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px 10px;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 17px;
+    overflow: scroll;
+}
+.contentBody{
+    background: rgba(138, 161, 165, 0.664);
+    border: 2px solid #facf5a;
+    border-radius: 3px;
+    box-shadow: rgb(13, 27, 31) 0 0 10px;
+    width: 80%;
+    height: 150px;
+    display: table;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px 10px;
+    overflow: scroll;
+}
+.mediaBtn{
+    margin: 0;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.postBtn{
+    margin: 0;
+    position: absolute;
+    margin-left: 180px;
+    margin-top: 20px;
+}
+.likeBtn{
+    display: table;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 5px 20px;
+    background: #fac83f;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: rgb(11, 21, 22) 0 0 8px;
+}
+.likeBtn:hover{
+    background: #f3d071;
+}

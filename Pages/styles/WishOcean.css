@@ -46,10 +46,40 @@ body,html{
     width: 75%;
     padding-top: 50px;
     padding-bottom: 50px;
-  }
-  .swiper-slide {
+}
+.swiper-slide {
     background-position: center;
     background-size: cover;
     width: 300px;
     height: 300px;
-  }
+}
+
+.contentBody{
+    background: rgba(138, 161, 165, 0.664);
+    border: 2px solid #facf5a;
+    border-radius: 3px;
+    box-shadow: rgb(13, 27, 31) 0 0 10px;
+    width: 80%;
+    height: 150px;
+    display: table;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px 10px;
+    overflow: scroll;
+}
+.likeBtn{
+    display: table;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 5px 20px;
+    background: #fac83f;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: rgb(11, 21, 22) 0 0 8px;
+}
+.likeBtn:hover{
+    background: #f3d071;
+}

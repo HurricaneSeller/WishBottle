@@ -5,23 +5,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
         <title>Wish Bottle</title>
         <link rel="stylesheet" type="text/css" href="./styles/swiper.min.css">
-        <link rel="stylesheet" type="text/css" href="./styles/WishOcean.css">
+        <link rel="stylesheet" type="text/css" href="./styles/WishPool.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
     <body>
-        <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                </div>
+            <div class="swiper-container" id="contentList">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide" v-for="content in contents">
+                        <div class="contentContainer">
+                            <div class="contentBody">
+                                <p class="detail">{{ content.detail }}</p>
+                                <p class="username">{{content.user_name}}</p>
+                                <p class="time">{{content.date}}</p>
+                            </div>
+                            <div class="contentFoot">
+                                <button class="likeBtn">Like</button>
+                            </div>
+                        </div>
+                    </li>
+                    <script>
+                        const app = new Vue({
+                            el: '#contentList',
+                            data :{
+                                contents:[
+                                    {detail: '不想工作', user_name:'john doe', date:'2018-5-31'},
+                                    {detail:'不想上学', user_name:'alice', date: '2016-5-20'}
+                                ]
+                            }
+                        })
+                    </script>
+                </ul>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
-                </div>
+            </div>
         <script type="text/javascript" src="./js/swiper.min.js"></script>
         <script>
             var swiper = new Swiper('.swiper-container', {
@@ -40,12 +59,12 @@
                 el: '.swiper-pagination',
                 },
             });
-        </script>  
+        </script>        
         <div class="slidebar">
             <ul>
-                <li title="个人信息"><a class="ion-person" href="Profiles.html"></a></li>
-                <li title="心愿池"><a class="ion-calendar" href="WishPool-Main.html"></a></li>
-                <li title="心愿海"><a class="ion-aperture" href="#"></a></li>
+                <li><a class="ion-person" href="Profiles.html"></a></li>
+                <li><a class="ion-calendar" href="WishPool-Main.html"></a></li>
+                <li><a class="ion-aperture" href="#"></a></li>
             </ul>
         </div>
     </body>
