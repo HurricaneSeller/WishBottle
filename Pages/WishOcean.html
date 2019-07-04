@@ -8,18 +8,19 @@
         <link rel="stylesheet" type="text/css" href="./styles/WishPool.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
     <body>
             <div class="swiper-container" id="contentList">
-                <ul class="swiper-wrapper">
+                <ul class="swiper-wrapper" style="list-style-type:none; list-style: none">
                     <li class="swiper-slide" v-for="content in contents">
                         <div class="contentContainer">
                             <div class="contentBody">
                                 <p class="detail">{{ content.detail }}</p>
-                                <p class="username">{{content.user_name}}</p>
-                                <p class="time">{{content.date}}</p>
+                                <div class="stamp">
+                                    <p class="username">{{content.user_name}}</p>
+                                    <p class="time">{{content.date}}</p>
+                                </div>
                             </div>
                             <div class="contentFoot">
                                 <button class="likeBtn">Like</button>

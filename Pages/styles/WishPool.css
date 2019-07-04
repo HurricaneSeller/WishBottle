@@ -55,20 +55,21 @@ body,html{
     box-shadow: rgb(85, 140, 150) 0 0 10px;
 }
 .inputZone{
+    font-family: 'Monsterrat', sans-serif;
     background: rgba(23, 47, 51, 0.664);
     border: 2px solid #facf5a;
-    border-radius: 3px;
+    border-radius: 5px;
     box-shadow: rgb(13, 27, 31) 0 0 10px;
     width: 80%;
     height: 150px;
-    display: table;
+    display: block;
     margin: 0 auto;
     margin-top: 30px;
     padding: 10px 10px;
     color: white;
     letter-spacing: 2px;
     font-size: 17px;
-    overflow: scroll;
+    overflow: auto;
 }
 .contentBody{
     background: rgba(138, 161, 165, 0.664);
@@ -77,26 +78,43 @@ body,html{
     box-shadow: rgb(13, 27, 31) 0 0 10px;
     width: 80%;
     height: 150px;
-    display: table;
+    display: block;
     margin: 0 auto;
     margin-top: 30px;
     padding: 10px 10px;
-    overflow: scroll;
+    overflow: auto;
 }
 .mediaBtn{
+    display: block;
     margin: 0;
+    font-size: 18px;
+    padding: 5px 20px;
+    background: #fac83f;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: rgb(11, 21, 22) 0 0 8px;
     position: absolute;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: 30px;
 }
 .postBtn{
     margin: 0;
     position: absolute;
     margin-left: 180px;
-    margin-top: 20px;
+    margin-top: 15px;
+    font-size: 18px;
+    padding: 5px 20px;
+    background: #fac83f;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: rgb(11, 21, 22) 0 0 8px;
 }
 .likeBtn{
-    display: table;
+    display: block;
     margin: 0 auto;
     margin-top: 20px;
     font-size: 18px;
@@ -110,4 +128,21 @@ body,html{
 }
 .likeBtn:hover{
     background: #f3d071;
+}
+.stamp{ 
+    position: absolute;
+    text-align: right;
+    font-size: 15px;
+    display: block;
+    margin-left: 50%;
+    margin-top: 15%;
+    font-weight: 500;
+    line-height: 5px;
+}
+.detail{
+    margin: 0;
+}
+.checkbox{
+    margin-left: 100px;
+    margin-top: 50px;
 }
