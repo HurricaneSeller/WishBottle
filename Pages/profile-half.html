@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-18">
+        <title>profile</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="./styles/Profiles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+        <script>
+                function handleFiles(obj,id) {
+                    file = document.getElementById("icon");
+                    var files = obj.files;
+                    img = new Image();
+                    if(window.URL){
+                        //File API
+                        img.src = window.URL.createObjectURL(files[0]); //创建一个object URL，并不是你的本地路径
+                        img.onload = function(e) {
+                        window.URL.revokeObjectURL(this.src); //图片加载后，释放object URL
+                        }
+                    }
+                    file.src=img.src;
+                    //上传文件
+                        var fd = new FormData(),//实例化一个表单
+                        xhr = new XMLHttpRequest();
+                        fd.append('headimg', files[0]);//追加图片元素
+                        xhr.open('post', 'user.php?act=act_edit_img');//请求方式，请求地址
+                        xhr.send(fd);
+                }
+                </script>
+<style>
+    ul {
+        list-style-type: none;
+        margin:0;
+        padding:0;
+        overflow: hidden;
+        background: #333333;
+    }
+    li {
+        float:left;
+    }
+    li a {
+        display: block;
+        color: blueviolet;
+        text-align: left;
+        padding: 20px;
+        text-decoration:blue;
+    }
+    li a:hover{
+        background-color: black;
+    }
+    form {
+        float:left;
+    }
+    body{
+   background:url(./images/pexels-photo-2926001.jpg)  no-repeat center center;
+   background-size:cover;
+   background-attachment:fixed;
+} 
+</style>
+    </head>
+    <body>
+       <!-- <div>
+       <ul>
+           <li><a href="#home">my wish</a></li>
+           <li><a href="#house">my document</a></li>
+           <li><a href="#ooo">my world</a></li>
+           <li></li>
+       </ul>
+    </div>-->
+    <div class="slidebar">
+            <ul>
+                <li><a class="ion-person" href="#"></a></li>
+                <li><a class="ion-calendar" href="WishPool-Main.html"></a></li>
+                <li><a class="ion-aperture" href="WishOcean.html"></a></li>
+            </ul>
+        </div>
+    <div  style="margin:100px 100px 200px 650px;width:250px; height:480px;background-color:White;">
+        <form action="action_page.php">
+            <fieldset>
+                <legend>Personal Information Change</legend>
+            Avatar<br>
+            <!--<label class="btn btn-primary" id="uploadImgBtn">
+                    <input type="file" name="upfile" id="upfile" class="d-none">
+                    Try it
+                  </label>
+                  
+                  <div id="cropedUploadImageBox" class="mt-3" style="display: none">
+                    <img id="cropedUploadImage">
+                  </div>
+                 <script> $('#uploadImgBtn').bsModalCropper({
+                    id: 'bsModalCropper',
+                    title: 'Cropper image',
+                  
+                    // Cropper.js options
+                    cropper: {
+                      aspectRatio: 16 / 9
+                    },
+                  
+                    // On cropper
+                    onCropper: function (dataURL) {
+                      $('#cropedUploadImageBox').show();
+                      $('#cropedUploadImage').attr('src', dataURL);
+                    },
+                  
+                    // // Upload image
+                    // action: '/url', // Can set your Upload URL
+                    // success: function (data) {
+                    //   console.log(data);
+                    // },
+                    uploadConfig: {
+                      maxSize: Math.pow(1024, 2) * 5 // 5M
+                    },
+                    onUploadError: function (error) {
+                      alert(error)
+                    }
+                  });</script>-->
+                <em style="width: 60px;display: block;position: absolute;">
+
+                        <input type="file" style="opacity:0; filter:alpha(opacity=0); height: 100px; width: 100px; position: absolute; top: 0; left: 0; z-index: 9;" onchange="handleFiles(this,'icon')">
+                        
+                        <img src="{$headimgurl}" style="height: 100px; width: 100px;" id="icon">
+                        </em><br><br><br><br><br><br>
+            Name<br>
+           <input type="text">
+           <br>
+           <br>
+           用户名：
+           <input type="text" name="userid">
+           <br>
+           <br>
+           密码&nbsp;&nbsp;&nbsp;&nbsp;：
+           <input type="password" name="psw">
+           <br>
+           <br>
+           <input type="radio" name="gender" value="male" checked>male
+           <input type="radio" name="gender" value="female">female
+           <input type="radio" name="gender" value="others">others<br><br>
+           JOB<br><br>
+           <input list="Jobs" name="job">
+           <datalist id="Jobs">
+           <option value="doctor">
+           <option value="office worker">
+           <option value="student">
+           <option value="officer">
+           <option value="farmer">
+           </datalist><br><br>
+            <input type="submit" value="submit">
+        </fieldset>
+        </form>
+        </div>
+        
+    </body>
+
+</html>

@@ -7,6 +7,8 @@ body,html{
     height: 100%;
     width: 100%;
     font-family: 'Monsterrat' , sans-serif;
+    background: url('../images/pexels-photo-2926001.jpg');
+    background-size: cover;
 }
 .slidebar{
     float: left;
@@ -36,4 +38,75 @@ body,html{
 }
 .slidebar ul li a:hover{
     background: rgb(88, 128, 134);
+}
+.collapsible{
+    margin: 0 35%;
+    padding: 0;
+    display: table;
+    position: absolute;
+    width: 600px;
+    margin-top: 150px;
+}
+.collapsible-body{
+    background: #ffffffc4;
+}
+#body1{
+    padding: 50px 0;
+}
+.collapsible-header{
+    transition: .5s;
+}
+.collapsible-header:hover{
+    background: #ffecb6;
+}
+.collapsible-header:focus{
+    background:  #fdd76f; 
+}
+.avatarSelect{
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 5px 20px;
+    background: #fac83f;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: rgb(11, 21, 22) 0 0 8px;
+}
+.inputFile{
+    width: 0.1px; 
+    height: 0.1px; 
+    opacity: 0; 
+    overflow: hidden; 
+    position: absolute; 
+    z-index: -1;
+}
+.stand{
+    display: table;
+    margin: 0;
+    margin-top: 15px;
+    margin-left: 50px;
+    font-size: 18px;
+    padding: 5px 20px;
+    background: #fac83f;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: rgba(11, 21, 22, 0.479) 0 0 8px;
+}
+.avatar{
+    margin: 0;
+    display: table;
+    position: absolute;
+    margin-left: 50%;
+    margin-top: -13%;
+}
+.changeName{
+    display: table;
+    margin: 0;
+    margin-left: 100px;
+    position: absolute;
+    width: 100px;
 }

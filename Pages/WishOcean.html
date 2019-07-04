@@ -8,18 +8,19 @@
         <link rel="stylesheet" type="text/css" href="./styles/WishPool.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        </script><script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </head>
     <body>
             <div class="swiper-container" id="contentList">
                 <ul class="swiper-wrapper" style="list-style-type:none; list-style: none">
-                    <li class="swiper-slide" v-for="content in contents">
+                    <li class="swiper-slide" v-for="item in contents">
                         <div class="contentContainer">
                             <div class="contentBody">
-                                <p class="detail">{{ content.detail }}</p>
+                                <p class="detail">{{item.content}}</p>
                                 <div class="stamp">
-                                    <p class="username">{{content.user_name}}</p>
-                                    <p class="time">{{content.date}}</p>
+                                    <p class="username">{{item.name}}</p>
+                                    <p class="time">{{item.date}}</p>
                                 </div>
                             </div>
                             <div class="contentFoot">
@@ -30,11 +31,18 @@
                     <script>
                         const app = new Vue({
                             el: '#contentList',
-                            data :{
-                                contents:[
-                                    {detail: '不想工作', user_name:'john doe', date:'2018-5-31'},
-                                    {detail:'不想上学', user_name:'alice', date: '2016-5-20'}
-                                ]
+                            data() {
+                                return {
+                                    contents
+                                }
+                            },
+                            mounted() {
+                                axios
+                                .get('http://139.196.161.120:3000/wishes')
+                                .then(response=>(this.contents=response.data.data))
+                                .catch(function(error){
+                                    console.log(error);
+                                });
                             }
                         })
                     </script>

@@ -4,10 +4,65 @@
         <meta charset="utf-8">
         <title>Wish Bottle</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel="stylesheet" href="./styles/Profiles.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script>
+                function handleFiles(obj,id) {
+                    file = document.getElementById("icon");
+                    var files = obj.files;
+                    img = new Image();
+                    if(window.URL){
+                        //File API
+                        img.src = window.URL.createObjectURL(files[0]); //创建一个object URL，并不是你的本地路径
+                        img.onload = function(e) {
+                        window.URL.revokeObjectURL(this.src); //图片加载后，释放object URL
+                        }
+                    }
+                    file.src=img.src;
+                    //上传文件
+                        var fd = new FormData(),//实例化一个表单
+                        xhr = new XMLHttpRequest();
+                        fd.append('headimg', files[0]);//追加图片元素
+                        xhr.open('post', 'user.php?act=act_edit_img');//请求方式，请求地址
+                        xhr.send(fd);
+                }
+        </script>
     </head>
     <body>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Profile</div>
+                <div class="collapsible-body" id="body1">
+                    <em class="avartarSelect">
+                        <input class="inputFile" type="file" name="file" id="file" onchange="handleFiles(this,'icon')">
+                        <label for="file" class="stand" >Choose a file</label>
+                        <img src="{$headimgurl}" style="height: 100px; width: 100px;" id="icon" class="avatar">
+                        <input placeholder="Input your new name" class="changeName" type="text">
+                    </em>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">lock</i>Security</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">build</i>Sittings</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+        </ul>
+        <script>
+            $(document).ready(function(){
+                $('.collapsible').collapsible();
+            });
+        </script>
         <div class="slidebar">
             <ul>
                 <li title="个人信息"><a class="ion-person" href="#"></a></li>
