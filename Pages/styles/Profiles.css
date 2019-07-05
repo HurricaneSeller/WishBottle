@@ -51,7 +51,8 @@ body,html{
     background: #ffffffc4;
 }
 #body1{
-    padding: 50px 0;
+    padding: 100px 0;
+    height: 350px;
 }
 .collapsible-header{
     transition: .5s;
@@ -63,16 +64,18 @@ body,html{
     background:  #fdd76f; 
 }
 .avatarSelect{
-    margin: 0 auto;
-    margin-top: 20px;
+    margin: 0;
+    position: absolute;
+    display: table;
     font-size: 18px;
-    padding: 5px 20px;
+    padding: 5px 0;
     background: #fac83f;
     border: none;
     outline: none;
     color: white;
     cursor: pointer;
     box-shadow: rgb(11, 21, 22) 0 0 8px;
+    margin-top: -50px;
 }
 .inputFile{
     width: 0.1px; 
@@ -86,7 +89,7 @@ body,html{
     display: table;
     margin: 0;
     margin-top: 15px;
-    margin-left: 50px;
+    margin-left: 55px;
     font-size: 18px;
     padding: 5px 20px;
     background: #fac83f;
@@ -100,13 +103,112 @@ body,html{
     margin: 0;
     display: table;
     position: absolute;
-    margin-left: 50%;
-    margin-top: -13%;
+    margin-left: 250px;
+    margin-top: -100px;
 }
-.changeName{
-    display: table;
+.nameChange{
+    position: absolute; 
+    padding-top: 1.5rem; 
+    margin-left: 55px;
+    margin-top: 20px;
+} 
+.nameLabel{ 
+    position: absolute; 
+    top: 0; 
+    font-size: 16px;
+    opacity: 1; 
+    transform: translateY(0); 
+    transition: all 0.2s ease-out; 
+    color: #3A6168;
+} 
+.nameInput:placeholder-shown + .nameLabel{ 
+    opacity: 0; 
+    transform: translateY(1rem); 
+}
+.nameInput{
+    width: 300px;
+    height: 40px;
+    padding-left: 10px;
+    border: rgb(129, 180, 190) solid 2px;
+    box-shadow: rgba(58, 97, 104, 0.295) 0 0 8px;
+    border-radius: 5px;
+}
+
+#body2{
+    height: 300px;
+}
+.emailChange{
+    position: absolute; 
+    padding-top: 1.5rem; 
+    margin-left: 45px;
+    margin-top: 0px;
+} 
+.emailLabel{ 
+    position: absolute; 
+    top: 0; 
+    font-size: 16px;
+    opacity: 1; 
+    transform: translateY(0); 
+    transition: all 0.2s ease-out; 
+    color: #3A6168;
+} 
+.emailInput:placeholder-shown + .emailLabel{ 
+    opacity: 0; 
+    transform: translateY(1rem); 
+}
+.emailInput{
+    width: 300px;
+    height: 40px;
+    padding-left: 10px;
+    border: rgb(129, 180, 190) solid 2px;
+    box-shadow: rgba(58, 97, 104, 0.295) 0 0 8px;
+    border-radius: 5px;
+}
+
+
+.passwdChange{
+    position: absolute; 
+    padding-top: 1.5rem; 
+    margin-left: 45px;
+    margin-top: 80px;
+} 
+.passwdLabel{ 
+    position: absolute; 
+    top: 0; 
+    font-size: 16px;
+    opacity: 1; 
+    transform: translateY(0); 
+    transition: all 0.2s ease-out; 
+    color: #3A6168;
+} 
+.passwdInput:placeholder-shown + .passwdLabel{ 
+    opacity: 0; 
+    transform: translateY(1rem); 
+}
+.passwdInput{
+    width: 300px;
+    height: 40px;
+    padding-left: 10px;
+    border: rgb(129, 180, 190) solid 2px;
+    box-shadow: rgba(58, 97, 104, 0.295) 0 0 8px;
+    border-radius: 5px;
+}
+.submit-btn{
+    margin-top: 180px;
+    margin-left: 48px;
+    background: #FACF5A;
+    color: #fff;
+    border-radius: 44px;
+    cursor: pointer;
+    transition: 0.8s;
+    font-size: 18px;
+    width: 120px;
+    height: 40px;
+    border: none;
+    box-shadow: rgba(25, 43, 46, 0.76) 0 0 10px;
+}
+#btn1{
     margin: 0;
-    margin-left: 100px;
-    position: absolute;
-    width: 100px;
+    margin-left: 60px;
+    margin-top: 120px;
 }

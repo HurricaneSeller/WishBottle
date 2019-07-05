@@ -4,15 +4,12 @@
         <meta charset="utf-8">
         <title>Wish Bottle</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="./styles/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel="stylesheet" href="./styles/Profiles.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-        <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <script>
                 function handleFiles(obj,id) {
@@ -41,21 +38,31 @@
             <li>
                 <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Profile</div>
                 <div class="collapsible-body" id="body1">
-                    <em class="avartarSelect">
+                    <div class="avartarSelect">
                         <input class="inputFile" type="file" name="file" id="file" onchange="handleFiles(this,'icon')">
                         <label for="file" class="stand" >Choose a file</label>
                         <img src="{$headimgurl}" style="height: 100px; width: 100px;" id="icon" class="avatar">
-                        <input placeholder="Input your new name" class="changeName" type="text">
-                    </em>
+                    </div>
+                    <div class="nameChange">
+                        <input type="text" id="dynamic-label-input" placeholder="Input your new name" class="nameInput"> 
+                        <label for="dynamic-label-input" class="nameLabel">Input your new name</label> 
+                    </div>
+                    <input type="submit" value="Submit" class="submit-btn" onclick="" id="btn1">
                 </div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="material-icons">lock</i>Security</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">build</i>Sittings</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                <div class="collapsible-body" id="body2">
+                    <div class="emailChange">
+                        <input type="text" id="dynamic-label-input" placeholder="Input your new email" class="emailInput"> 
+                        <label for="dynamic-label-input" class="emailLabel">Input your new email</label> 
+                    </div>
+                    <div class="passwdChange">
+                        <input type="text" id="dynamic-label-input" placeholder="Input your new password" class="passwdInput"> 
+                        <label for="dynamic-label-input" class="passwdLabel">Input your new password</label> 
+                    </div>
+                    <input type="submit" value="Submit" class="submit-btn" onclick="">
+                </div>
             </li>
         </ul>
         <script>

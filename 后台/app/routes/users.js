@@ -44,8 +44,8 @@ router.post('/reg', (req, res) => {
 // 登陆
 router.post('/login' , (req, res) => {
   pool.getConnection((err, connection) => {  
-    let input_id = [req.body.user_id], input_password = req.body.password;
-    connection.query(SQL["GET_USER_BY_ID"], input_id, (err, result) => {
+    let email = [req.body.email], input_password = req.body.password;
+    connection.query(SQL["GET_USER_BY_EMAIL"], email, (err, result) => {
       let faliData = {
         msg: s["wrong"]
       }

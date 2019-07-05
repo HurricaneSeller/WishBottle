@@ -14,21 +14,51 @@
   </head>
   <body>
     <div class="signin-form">
-      <form class="" action="SighUp.html" method="post">
+      <!-- <form class="" action="SighUp.html" method="post"> -->
         <section class="os-animation" data-os-animation="bounceInUp" data-os-animation-delay="0s">
           <h1>Sign In</h1>
         </section>
         <section class="os-animation" data-os-animation="bounceInUp" data-os-animation-delay=".2s">
-          <input type="email" placeholder="Email" class="txtb">
+          <input type="email" id="input_email" placeholder="Email" class="txtb">
         </section>
         <section class="os-animation" data-os-animation="bounceInUp" data-os-animation-delay=".3s">
-          <input type="password" placeholder="Password" class="txtb">
+          <input type="password" id="input_password" placeholder="Password" class="txtb">
         </section>
         <section class="os-animation" data-os-animation="bounceInUp" data-os-animation-delay=".4s">
-          <input type="submit" value="Sign In" class="signin-btn">
+          <input type="submit" value="Sign In" class="signin-btn" onclick="onClickSubmit()">
+          <script type="text/javascript">
+            const baseUrl = 'http://139.196.161.120:3000';
+            function post(url, data, callback) {
+                var request = new XMLHttpRequest();
+                request.open("POST", baseUrl + url, true );
+                request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                request.send(data);
+                request.onload = () => {
+                    callback(request.response);
+                }
+            }
+            function getUserId(response) {
+              let json = JSON.parse(response);
+              if (json.code !== "200") {
+                alert(json.data.msg);
+                return;
+              }
+              window.location.href = "./WishPool-Main.html?user_id=" + json.data.user_id;
+            }
+            function onClickSubmit(){
+              let email = $("#input_email").val();
+              let password = $("#input_password").val();
+              if (!email || !password) {
+                alert("不能为空");
+                return;
+              }
+              post("/users/login", 'email=' + email + '&password=' + password, getUserId);
+            }
+        </script>
+
         </section>
         <a href="./SignUp.html">Create an account</a>
-      </form>
+      <!-- </form> -->
     </div>
   </body>
 </html>
