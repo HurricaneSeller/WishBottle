@@ -3,18 +3,20 @@
 <head>
 <meta charset="utf-8">
 <title>Wish Bottle</title>
-<span style="font-size:18px;"> </span><span style="font-size:24px;"><meta http-equiv="refresh" content="6.7;URL=Welcome.html"> </span> 
-<span style="font-size:24px;">
-	
 </head>
 
 <body>
 <div style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;">
-  <video width="1907" height="auto" preload="auto" autoplay="autoplay" >
+  <video id="shvideo" width="1907" height="auto" preload="auto" autoplay="autoplay" onEnded="video()" >
     <source src="video/1.mp4" type="video/mp4">
   </video>
 </div>
 	
-
+<script type="text/javascript">
+   function video(){
+      window.location.href='Welcome.html';
+   }
+</script>
+	
 </body>
 </html>
