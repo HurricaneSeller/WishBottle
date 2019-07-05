@@ -4,8 +4,8 @@ const SQL = {
     // 添加一个用户
     "INSERT_USER": `INSERT INTO user(name,email,password)
                     VALUES(?,?,?)`,
-    // 按user_id查找用户
-    "GET_USER_BY_ID": "SELECT * FROM user WHERE user_id=?",
+    // 按email查找用户
+    "GET_USER_BY_EMAIL": "SELECT * FROM user WHERE eamil=?",
     "GET_ALL_USER": "SELECT * FROM user",
     "GET_ALL_WISH": "SELECT * FROM wish",
 
