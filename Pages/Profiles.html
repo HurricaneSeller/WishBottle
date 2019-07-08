@@ -38,16 +38,16 @@
             <li>
                 <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Profile</div>
                 <div class="collapsible-body" id="body1">
-                    <div class="avartarSelect">
+                    <!--<div class="avartarSelect">
                         <input class="inputFile" type="file" name="file" id="file" onchange="handleFiles(this,'icon')">
                         <label for="file" class="stand" >Choose a file</label>
                         <img src="{$headimgurl}" style="height: 100px; width: 100px;" id="icon" class="avatar">
-                    </div>
+                    </div>-->
                     <div class="nameChange">
                         <input type="text" id="dynamic-label-input" placeholder="Input your new name" class="nameInput"> 
                         <label for="dynamic-label-input" class="nameLabel">Input your new name</label> 
                     </div>
-                    <input type="submit" value="Submit" class="submit-btn" onclick="" id="btn1" onclick="">
+                    <input type="submit" value="Submit" class="submit-btn" onclick="" id="btn1" onclick="onClickSubmit1()">
                 </div>
             </li>
             <li>
@@ -66,7 +66,41 @@
             </li>
         </ul>
         <script>
-            function 
+            const baseUrl = 'http://139.196.161.120:3000';
+            function post(url, data, callback){
+                var request = new SMLHttpRequest();
+                request.open("POST", baseUrl + url, true);
+                request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                request.send(data);
+                request.onload = () =>{
+                    callback(request.response);
+                }
+            }
+            function ifSuccess(){
+                let json = JSON.parse(response);
+                if(json.code === 200){
+                    alert("修改成功");
+                }
+            }
+            function onClickSubmit1(){
+                let name = $(".nameInput").val();
+                if(!name){
+                alert("需要填入新名字才能发送电波哦");
+                post("/users/update", 'new_name='+name, ifSuccess);
+            }
+            function onClickSubmit2(){
+                let email = $('.emailInput').val();
+                let passwd = $('.passwdInput').val();
+                if(email && passwd){
+                    post("/users/update", 'new_email='+email+'&new_pass='+passwd, ifSuccess);
+                }else if(!email && passwd){
+                    post("/users/update", 'new_email='+'&new_pass='+passwd, ifSuccess);
+                }else if(email && !passwd){
+                    post("/users/update", 'new_email='+email+'&new_pass=', ifSuccess);
+                }else if(!email && !passwd){
+                    alert("需要至少输入一个才能发送电波哦");
+                }
+            }
         </script>
         <script>
             $(document).ready(function(){

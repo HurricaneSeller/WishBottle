@@ -35,7 +35,9 @@
             <div class="swiper-pagination"></div>
             <script>
                 const oceanUrl = 'http://139.196.161.120:3000/wishes';
-                
+                const likeUrl = 'http://139.196.161.120:3000/wishes/favor';
+                const uid= document.URL.split("=")[1];
+                var wishId = new Array();
                 function loadWishes(){
                     var request = new XMLHttpRequest();
                     request.open('GET', oceanUrl, true);
@@ -43,7 +45,7 @@
                     request.onload = ()=>{
                         let js = JSON.parse(request.response);
                         jsSave=js.data.data;
-                        for(var i=1; i<jsSave.length; i++){
+                        for(var i=0; i<jsSave.length; i++){
                         var popContent = 
                         '<li class="swiper-slide">'+
                                 '<div class="contentContainer">'+
@@ -55,21 +57,39 @@
                                         '</div>'+
                                     '</div>'+
                                     '<div class="contentFoot">'+
-                                        '<button class="likeBtn">'+jsSave[i].favor_num+' '+'Like</button>'+
+                                        '<button class="likeBtn" onclick="onClickLike('+i+')"'+'id="'+i+'"'+'>'+jsSave[i].favor_num+' '+'Like</button>'+
                                     '</div>'+
                                 '</div>'+
                             '</li>';
                             $('.swiper-wrapper').append(popContent);
+                            wishNum[i] = jsSave[i].wish_id;
                             }
                     }
                     request.send();
-                    return;
                 }
                 window.onload = loadWishes;
+                function likeNumPlus(t){
+                    let id = t.toString();
+                    let like = document.getElementById(t).innerHTML.split(' ')[0].parse();
+                    document.getElementById(t).innerHTML= (like+1)+' '+'Like';
+                }
+                function onClickLike(t){
+                    var request = new XMLHttpRequest();
+                    const likeurl = 'http://139.196.161.120:3000/wished/favor';
+                    likeNumPlus(t);
+                    request.open('POST', likeUrl, true);
+                    request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                    let wishid = wishNum[t];
+                    request.send("wish_id="+wishid, "&user_id="+uid); 
+                    request.onload = ()=>{
+                        if(response.code===304){
+                            alert("不能重复点赞哦");
+                            return;
+                        }
+                    }
+                }
             </script>
             </div>
-        
-        
         <div class="slidebar">
             <ul>
                 <li><a class="ion-person" href="Profiles.html"></a></li>

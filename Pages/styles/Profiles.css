@@ -63,6 +63,7 @@ body,html{
 .collapsible-header:focus{
     background:  #fdd76f; 
 }
+/*
 .avatarSelect{
     margin: 0;
     position: absolute;
@@ -105,12 +106,12 @@ body,html{
     position: absolute;
     margin-left: 250px;
     margin-top: -100px;
-}
+}*/
 .nameChange{
     position: absolute; 
-    padding-top: 1.5rem; 
+    padding-top: 1.5rem;
     margin-left: 55px;
-    margin-top: 20px;
+    margin-top: 0;
 } 
 .nameLabel{ 
     position: absolute; 
