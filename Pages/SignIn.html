@@ -43,7 +43,8 @@
                 alert(json.data.msg);
                 return;
               }
-              window.location.href = "./WishPool-Main.html?user_id=" + json.data.user_id;
+              //console.log(json.data.data[0].user_id);
+              window.location.href = "./WishPool-Main.html?user_id=" + json.data.data[0].user_id;
             }
             function onClickSubmit(){
               let email = $("#input_email").val();
@@ -55,7 +56,6 @@
               post("/users/login", 'email=' + email + '&password=' + password, getUserId);
             }
         </script>
-
         </section>
         <a href="./SignUp.html">Create an account</a>
       <!-- </form> -->
