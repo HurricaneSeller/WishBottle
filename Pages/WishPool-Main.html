@@ -10,10 +10,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
-            let url = document.URL;
-            let getVal = url.split('?')[1];    
-            var uer_id= getVal.split("=")[1];
-            
+
         </script>
     </head>
     <body>
@@ -28,36 +25,11 @@
                                 <a>Attach</a>
                             </div>
                             <div class="postBtn">
-                                <a>Post</a>
+                                <a onclick="onClickPost()">Post</a>
                             </div>
                             <p style="color: white; font-weight: 200"><input class="checkbox" type="checkbox">Sync to WishOcean</p>
                         </div>
                     </li>
-                    <li class="swiper-slide" v-for="content in contents">
-                        <div class="contentContainer">
-                            <div class="contentBody">
-                                <p class="detail">{{ content.detail }}</p>
-                                <div class="stamp">
-                                    <p class="username">{{content.user_name}}</p>
-                                    <p class="time">{{content.date}}</p>
-                                </div>
-                            </div>
-                            <div class="contentFoot">
-                                <button class="likeBtn">Like</button>
-                            </div>
-                        </div>
-                    </li>
-                    <script>
-                        const app = new Vue({
-                            el: '#contentList',
-                            data :{
-                                contents:[
-                                    {detail: '不想工作', user_name:'john doe', date:'2018-5-31'},
-                                    {detail:'不想上学', user_name:'alice', date: '2016-5-20'}
-                                ]
-                            }
-                        })
-                    </script>
 
                 </ul>
                 <!-- Add Pagination -->
@@ -81,7 +53,72 @@
                 el: '.swiper-pagination',
                 },
             });
-        </script>        
+        </script>
+        <script>
+            const poolUrl = 'http://139.196.161.120:3000/wishes/user';
+            const postUrl = 'http://139.196.161.120:3000/wishes';
+            const uid= document.URL.split("=")[1];
+            //const id = parseInt(uid);
+            function post(url, data, callback){
+                var request = new XMLHttpRequest();
+                request.open('POST', poolUrl, true);
+                request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                console.log(data);
+                request.send("&user_id="+data);
+                request.onload = ()=>{
+                    console.log(request);
+                    callback(request.response);
+                }
+            }
+            function loadWishes(response){
+                    let js = JSON.parse(response);
+                    let jsBody = js.data.data;
+                    for(var i=0; i<jsBody.length; i++){
+                    var popContent =
+                    '<li class="swiper-slide">'+
+                            '<div class="contentContainer">'+
+                                '<div class="contentBody">'+
+                                    '<p class="detail">'+jsBody[i].content+'</p>'+
+                                    '<div class="stamp">'+
+                                        '<p class="username">'+jsBody[i].name+'</p>'+
+                                        '<p class="time">'+jsBody[i].date.slice(0,10)+'</p>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="contentFoot">'+
+                                    '<button class="likeBtn">'+jsBody[i].favor_num+' '+'Like</button>'+
+                                '</div>'+
+                            '</div>'+
+                        '</li>';
+                        $('.swiper-wrapper').append(popContent);
+                    }
+            }
+            function getById(){
+                console.log("number"+id);
+                post(poolUrl, uid, loadWishes);
+            }
+            window.onload = getById;
+
+            function postContent(postUrl, data){
+                var request = new XMLHttpRequest();
+                request.open('POST', poolUrl, true);
+                request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                console.log(data);
+                request.send(data);
+                request.onload = ()=>{
+                    if(request.response.code===200){
+                        window.location.href = "./WishPool-Main.html?user_id=" + uid;
+                    }
+                }
+            }
+            function onClickPost(){
+                let content= $('.inputZone').val();
+                if(!content){
+                    alert("不能发送空心愿哦");
+                    return;
+                }
+                postContent(postUrl, 'user_id=' + uid + '&content=' + content);
+            }
+        </script>
         <div class="slidebar">
             <ul>
                 <li><a class="ion-person" href="Profiles.html"></a></li>

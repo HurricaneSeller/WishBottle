@@ -9,66 +9,67 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         </script><script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </head>
     <body>
-            <div class="swiper-container" id="contentList">
-                <ul class="swiper-wrapper" style="list-style-type:none; list-style: none">
-                    <li class="swiper-slide" v-for="item in contents">
-                        <div class="contentContainer">
-                            <div class="contentBody">
-                                <p class="detail">{{item.content}}</p>
-                                <div class="stamp">
-                                    <p class="username">{{item.name}}</p>
-                                    <p class="time">{{item.date}}</p>
-                                </div>
-                            </div>
-                            <div class="contentFoot">
-                                <button class="likeBtn">Like</button>
-                            </div>
-                        </div>
-                    </li>
-                    <script>
-                        const app = new Vue({
-                            el: '#contentList',
-                            data() {
-                                return {
-                                    contents
-                                }
-                            },
-                            mounted() {
-                                axios
-                                .get('http://139.196.161.120:3000/wishes')
-                                .then(response=>(this.contents=response.data.data))
-                                .catch(function(error){
-                                    console.log(error);
-                                });
+        <div class="swiper-container" id="contentList">
+            <ul class="swiper-wrapper" style="list-style-type:none; list-style: none"></ul>
+            <script type="text/javascript" src="./js/swiper.min.js"></script>
+            <script>
+                var swiper = new Swiper('.swiper-container', {
+                    effect: 'coverflow',
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: 'auto',
+                    coverflowEffect: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows : true,
+                    },
+                    pagination: {
+                    el: '.swiper-pagination',
+                    },
+                });
+            </script>
+            <div class="swiper-pagination"></div>
+            <script>
+                const oceanUrl = 'http://139.196.161.120:3000/wishes';
+                
+                function loadWishes(){
+                    var request = new XMLHttpRequest();
+                    request.open('GET', oceanUrl, true);
+                    request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                    request.onload = ()=>{
+                        let js = JSON.parse(request.response);
+                        jsSave=js.data.data;
+                        for(var i=1; i<jsSave.length; i++){
+                        var popContent = 
+                        '<li class="swiper-slide">'+
+                                '<div class="contentContainer">'+
+                                    '<div class="contentBody">'+
+                                        '<p class="detail">'+jsSave[i].content+'</p>'+
+                                        '<div class="stamp">'+
+                                            '<p class="username">'+jsSave[i].name+'</p>'+
+                                            '<p class="time">'+jsSave[i].date.slice(0,10)+'</p>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="contentFoot">'+
+                                        '<button class="likeBtn">'+jsSave[i].favor_num+' '+'Like</button>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</li>';
+                            $('.swiper-wrapper').append(popContent);
                             }
-                        })
-                    </script>
-                </ul>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
+                    }
+                    request.send();
+                    return;
+                }
+                window.onload = loadWishes;
+            </script>
             </div>
-        <script type="text/javascript" src="./js/swiper.min.js"></script>
-        <script>
-            var swiper = new Swiper('.swiper-container', {
-                effect: 'coverflow',
-                grabCursor: true,
-                centeredSlides: true,
-                slidesPerView: 'auto',
-                coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows : true,
-                },
-                pagination: {
-                el: '.swiper-pagination',
-                },
-            });
-        </script>        
+        
+        
         <div class="slidebar">
             <ul>
                 <li><a class="ion-person" href="Profiles.html"></a></li>
