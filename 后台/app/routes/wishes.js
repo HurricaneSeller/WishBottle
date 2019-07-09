@@ -58,20 +58,26 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-    let value = [req.body.user_id, req.body.name, req.body.email, new Date().Format("yyyy-MM-dd HH:mm:ss"), 0,'','',req.body.content];
-    pool.getConnection((err, connection) => {
-      connection.query(SQL["INSERT_WISH"], value, (err, result) => {
-        let failData = {
-            msg: s["wrong"]
-        };
-        let successData = {
-          msg: s["finish"],
-      };
-        responseJSON(res, result, failData, successData);
-        res.send(result);
+  let id = req.body.user_id, date = new Date().Format("yyyy-MM-dd HH:mm:ss"), content = req.body.content;
+  pool.getConnection((err, connection) => {
+    connection.query(SQL["GET_USER_BY_USER_ID"], id, (err, result) => {
+      let user = JSON.parse(JSON.stringify(result).slice(1, -1));
+      let value = [id, user.name, user.email, date, 0,'','',content];
+      pool.getConnection((err, connection) => {
+        connection.query(SQL["INSERT_WISH"], value, (err, result) => {
+          let failData = {
+              msg: s["wrong"]
+          };
+          let successData = {
+            msg: s["finish"],
+          };
+
+          responseJSON(res, result, failData, successData);
+        })
       })
-      connection.release();
     })
+    connection.release();
+  })
 })
 Date.prototype.Format = function (fmt) { //author: meizz 
     var o = {
@@ -88,4 +94,37 @@ Date.prototype.Format = function (fmt) { //author: meizz
     if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
+
+router.post('/favor', (req, res) => {
+  let id = req.body.user_id, wish_id = req.body.wish_id;
+  pool.getConnection((err, connection) => {
+      connection.query(`SELECT * FROM user_wish WHERE user_id=` + id, (err, result) => {
+         let favor = JSON.stringify(JSON.parse(JSON.stringify(result).slice(1, -1)).favor).slice(1, -1);
+         let tmp = favor.split('@');
+         if (tmp) {
+           for (let i = 0; i < tmp.length; i ++) {
+             if (tmp[i] == wish_id) {
+               res.send({
+                 code: 304,
+                 data: {
+                   msg: '点过赞了'
+                 }
+               })
+             }
+           }
+         } 
+         favor = JSON.stringify(favor + '@' + wish_id);
+
+         connection.query(`UPDATE user_wish SET favor=` + favor + ` WHERE user_id=` + id, (err, result) => {
+           res.send({
+             code: 200, 
+             data: {
+               msg: '点赞成功'
+             }
+           });
+         })
+      })
+      connection.release();
+  })
+});
 module.exports = router;

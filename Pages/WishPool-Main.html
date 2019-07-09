@@ -55,10 +55,14 @@
             });
         </script>
         <script>
+            ///头部统一声明常量
             const poolUrl = 'http://139.196.161.120:3000/wishes/user';
             const postUrl = 'http://139.196.161.120:3000/wishes';
-            const uid= document.URL.split("=")[1];
-            //const id = parseInt(uid);
+            const id= document.URL.split("=")[1];
+            const uid = parseInt(id);
+            const likeUrl = 'http://139.196.161.120:3000/wishes/favor';
+            var wishId = new Array();
+            ///以下实现载入心愿
             function post(url, data, callback){
                 var request = new XMLHttpRequest();
                 request.open('POST', poolUrl, true);
@@ -97,7 +101,7 @@
                 post(poolUrl, uid, loadWishes);
             }
             window.onload = getById;
-
+            ///以下实现发心愿
             function postContent(postUrl, data){
                 var request = new XMLHttpRequest();
                 request.open('POST', poolUrl, true);
@@ -118,12 +122,38 @@
                 }
                 postContent(postUrl, 'user_id=' + uid + '&content=' + content);
             }
+            ///以下实现点赞
+            function likeNumPlus(t){
+                    let id = t.toString();
+                    let like = document.getElementById(t).innerHTML.split(' ')[0].parse();
+                    document.getElementById(t).innerHTML= (like+1)+' '+'Like';
+                }
+            function onClickLike(t){
+                var request = new XMLHttpRequest();
+                const likeurl = 'http://139.196.161.120:3000/wished/favor';
+                likeNumPlus(t);
+                request.open('POST', likeUrl, true);
+                request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                let wishid = wishNum[t];
+                request.send("wish_id="+wishid, "&user_id="+uid); 
+                request.onload = ()=>{
+                    if(response.code===304){
+                        alert("不能重复点赞哦");
+                        return;
+                    }
+                }
+            }
+            ///以下实现跳转到带有user_id的WishOcean页面
+            function goOceanWithId(){
+                document.getElementById("ocean").href = "WishOcean.html?user_id="+uid;
+            }
+            window.onload = goOceanWithId;
         </script>
         <div class="slidebar">
             <ul>
                 <li><a class="ion-person" href="Profiles.html"></a></li>
                 <li><a class="ion-calendar" href="#"></a></li>
-                <li><a class="ion-aperture" href="WishOcean.html"></a></li>
+                <li><a class="ion-aperture" href="#" id="ocean"></a></li>
             </ul>
         </div>
     </body>

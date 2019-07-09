@@ -64,4 +64,30 @@ router.post('/login' , (req, res) => {
   })
 });
 
+router.post('/update', (req, res) => {
+  let user_id = req.body.user_id, new_password = req.body.new_pass, new_name = req.body.new_name, new_email = req.body.email;
+  if (new_password || new_email || new_name) {
+    str = `UPDATE user SET password=` + JSON.stringify(new_password)  + `, name=` + JSON.stringify(new_name) + `, email=` + JSON.stringify(new_email) + ` WHERE user_id=` + user_id;
+  } else if (new_password || new_email) {
+    str = `UPDATE user SET password=` + JSON.stringify(new_password)  + `, email=` + JSON.stringify(new_email) + ` WHERE user_id=` + user_id;
+  } else if (new_email || new_name) {
+    str = `UPDATE user SET name=`  + JSON.stringify(new_name) + `, email=` + JSON.stringify(new_email) + ` WHERE user_id=` + user_id;
+  } else if (new_password || new_name) {
+    str = `UPDATE user SET password=` + JSON.stringify(new_password)  + `, name=` + JSON.stringify(new_name) + ` WHERE user_id=` + user_id;
+  } else if (new_email) {
+    str = `UPDATE user SET email=` + JSON.stringify(new_email) + ` WHERE user_id=` + user_id;
+  } else if (new_password) {
+    str = `UPDATE user SET password=` + JSON.stringify(new_password) + ` WHERE user_id=` + user_id;
+  } else if (new_name) {
+    str = `UPDATE user SET name=` + JSON.stringify(new_name) + ` WHERE user_id=` + user_id;
+  } else {
+    res.send('无更改');
+  }
+  pool.getConnection((err, connection) => {
+      connection.query(str,  (err, result) => {
+        res.send(result);
+      })
+      connection.release();
+  })
+})
 module.exports = router;
